@@ -1,0 +1,22 @@
+{
+    "name": "Base Development Container",
+    "settings": { 
+      "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    "extensions": [
+      "atlassian.atlascode",
+      "bierner.markdown-mermaid",
+      "codeium.codeium",
+      "eamodio.gitlens",
+      "mikestead.dotenv",
+      "ms-azuretools.vscode-docker",
+      "ms-vscode-remote.remote-containers",
+      "ms-vscode.makefile-tools",
+      "ms-vscode.vscode-typescript-next",
+      "tamasfe.even-better-toml",
+      "visualstudioexptteam.intellicode-api-usage-examples",
+      "visualstudioexptteam.vscodeintellicode",
+      "wayou.vscode-todo-highlight"
+    ]
+}
+  

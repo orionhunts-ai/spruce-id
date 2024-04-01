@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mongodb:
+    build:
+      context: '.'
+      dockerfile: './Dockerfile'
+    networks:
+      - orion-network
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongoData:/data/db # Updated volume mount point for MongoDB data
+
+  rust:
+    build:
+      context: '.'
+      dockerfile: './rust/Dockerfile'
+    ports:
+      - '8008:8080'
+    volumes:
+      - './rust/rest_rust_app/src:/home/rust/rest_rust_app/src'
+    depends_on:
+      - mongodb
+    networks:
+      - orion-network
+
+  ember:
+    build:
+      context: '.'
+      dockerfile: './ember/Dockerfile'
+    ports:
+      - '4200:4200'
+    volumes:
+      - './ember/ember-app/:/home/ember/app'
+    depends_on:
+      - mongodb
+      - rust
+    networks: 
+      - firstproject
+    
+volumes:
+  mongoData:
+
+networks:
+  firstproject:
